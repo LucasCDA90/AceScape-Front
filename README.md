@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+# Card game - BlackJack (AceScape)
+This repository is about my project of creating a cardgame application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This Card Game is a project to create a simple and entertaining of the famous BlackJack game. This game is designed to be played by two to four players.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Technologies used
 
-## Expanding the ESLint configuration
+- React
+- Node.js
+- Express.js
+- Vite
+- Mongodb
+- Docker
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### How to play
 
-- Configure the top-level `parserOptions` property like this:
+**1. Objective :**
+The objective of this game is to get closer to 21 than the dealer without going over 21.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+**2. Setup**
+- The game starts with the player placing a bet.
+- Shuffle the deck of cards.
+- Players receive two cards and the dealer's first card is face up and the second is face down.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**3. Gameplay :**
+- The player decides whether to "hit" (take another card) or "stand" (keep the current hand).
+- Players can also choose to "double down" (double their bet and receive one additional card) or "split" (if they have two cards of the same rank, split them into two separate hands).
+- The player wins if their hand is closer to 21 than the dealer's hand without exceeding it, or if the dealer busts (exceeds 21).
+
+**4. End of the game :**
+- At the end of each round, winnings are awarded or losses deducted based on the outcome.
+- The game continues with new rounds until the player decides to quit or runs out of funds.
