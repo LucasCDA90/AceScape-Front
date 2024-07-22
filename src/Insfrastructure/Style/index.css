@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .b-vert-clair {
+        background: #166534;
+    }
+
+    .b-vert-fonce {
+        background: #14532D;
+    }
+
+    .b-vert-clair2x {
+        background: #46A758;
+    } 
+}
+
+
+
+
