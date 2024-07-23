@@ -7,16 +7,16 @@ export const ApplicationLayout: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <nav className="flex justify-around b-vert-clair text-white p-4">
         <h1>
-          <NavLink to={"/"} className="mx-4">Home</NavLink>
+          <NavLink to={"/"} className="mx-4 hover:b-vert-clair2x p-4 rounded-md">Home</NavLink>
         </h1>
         <h1>
-          <NavLink to={"/blackjack"} className="mx-4">BlackJack</NavLink>
+          <NavLink to={"/blackjack"} className="mx-4 hover:b-vert-clair2x p-4 rounded-md">BlackJack</NavLink>
         </h1>
         <h1>
-          <NavLink to={"/profile"} className="mx-4">Profile</NavLink>
+          <NavLink to={"/profile"} className="mx-4 hover:b-vert-clair2x p-4 rounded-md">Profile</NavLink>
         </h1>
         <h1>
-          <NavLink to={"/rules"} className="mx-4">How to play</NavLink>
+          <NavLink to={"/rules"} className="mx-4 hover:b-vert-clair2x p-4 rounded-md">How to play</NavLink>
         </h1>
       </nav>
         <Outlet />

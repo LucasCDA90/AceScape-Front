@@ -1,0 +1,34 @@
+<svg width="494" height="390" viewBox="0 0 494 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_247_10758)">
+<rect x="30.8953" y="62.4816" width="210" height="296" rx="20" transform="rotate(-10 30.8953 62.4816)" fill="#F2F2F2"/>
+<rect x="31.4745" y="62.8871" width="209" height="295" rx="19.5" transform="rotate(-10 31.4745 62.8871)" stroke="#D2D2D2"/>
+</g>
+<path d="M92.7047 114.329L85.8605 75.5137L97.3627 73.4856L104.207 112.301C104.867 116.045 104.614 119.408 103.447 122.391C102.276 125.347 100.394 127.795 97.8007 129.733C95.2329 131.666 92.1794 132.945 88.6402 133.569C84.9728 134.216 81.6201 134.172 78.582 133.439C75.5438 132.705 72.9931 131.212 70.9297 128.957C68.8618 126.678 67.4819 123.576 66.79 119.652L78.3692 117.61C78.731 119.662 79.3002 121.241 80.077 122.347C80.8794 123.448 81.8643 124.16 83.0319 124.483C84.1995 124.806 85.5398 124.834 87.053 124.568C88.5148 124.31 89.7232 123.74 90.6782 122.857C91.6333 121.975 92.2882 120.815 92.6429 119.377C93.0232 117.935 93.0438 116.252 92.7047 114.329Z" fill="#050505"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M132.061 194.204C130.388 194.499 128.858 195.145 127.52 196.061C128.505 193.664 128.846 190.911 128.349 188.094C127.046 180.703 120.484 175.682 113.694 176.879C106.904 178.076 102.456 185.039 103.759 192.43C104.232 195.112 105.399 197.479 107.016 199.353C105.695 199.113 104.322 199.095 102.939 199.339C96.1485 200.536 91.7005 207.499 93.0038 214.89C94.307 222.281 100.868 227.302 107.659 226.105C109.192 225.834 110.605 225.267 111.86 224.47C111.86 224.473 117.286 221.783 119.733 213.667L120.525 218.154C120.525 218.154 121.09 232.638 107.766 236.584L105.596 236.966L105.985 239.171L143.015 232.641L142.626 230.437L140.456 230.82C126.587 231.669 122.164 217.865 122.164 217.865L121.426 213.68C122.423 215.236 127.744 222.764 136.414 221.025C136.536 221.007 136.658 220.991 136.781 220.97C143.571 219.772 148.019 212.81 146.716 205.419C145.412 198.028 138.851 193.007 132.061 194.204Z" fill="#1A1919"/>
+<g filter="url(#filter1_d_247_10758)">
+<rect x="255.4" y="26" width="210" height="296" rx="20" transform="rotate(10 255.4 26)" fill="#F2F2F2"/>
+<rect x="255.805" y="26.5792" width="209" height="295" rx="19.5" transform="rotate(10 255.805 26.5792)" stroke="#D2D2D2"/>
+</g>
+<path d="M296.557 65.8578L273.136 109.604L260.864 107.44L291.552 55.0987L299.362 56.4757L296.557 65.8578ZM301.026 114.522L293.941 65.3965L294.399 55.6007L302.285 56.9912L313.336 116.692L301.026 114.522ZM304.01 93.5492L302.416 102.589L272.833 97.3732L274.427 88.333L304.01 93.5492Z" fill="#F24822"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M260.928 186.019L284.512 220.846L318.586 196.185L295.001 161.358L260.928 186.019Z" fill="#F24822"/>
+<defs>
+<filter id="filter0_d_247_10758" x="0.0610352" y="0.181229" width="319.878" height="389.638" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="5"/>
+<feGaussianBlur stdDeviation="17"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_10758"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_247_10758" result="shape"/>
+</filter>
+<filter id="filter1_d_247_10758" x="173.166" y="0.165771" width="319.878" height="389.638" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="5"/>
+<feGaussianBlur stdDeviation="17"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_10758"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_247_10758" result="shape"/>
+</filter>
+</defs>
+</svg>
