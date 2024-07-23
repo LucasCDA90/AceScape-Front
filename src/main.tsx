@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './Insfrastructure/Style/index.css'
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router.tsx";
 import { Theme } from '@radix-ui/themes';

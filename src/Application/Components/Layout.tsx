@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import '/Users/33669/Projet-Personnel/AceScape-Front/src/Insfrastructure/Style/index.css';
 
 export const ApplicationLayout: React.FC = () => {
   return (

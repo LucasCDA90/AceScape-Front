@@ -1,4 +1,3 @@
-import '/Users/33669/Projet-Personnel/AceScape-Front/src/Insfrastructure/Style/index.css';
 import logo from './Application/images/logo-ace-scape.png'
 import { AuthLoginForm } from './Application/Components/AuthLoginForm'
 
