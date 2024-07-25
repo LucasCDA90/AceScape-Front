@@ -10,6 +10,7 @@ export const PageBlackJack = () => {
     const [dealerHand, setDealerHand] = useState<CardType[]>([]);
     const [message, setMessage] = useState<string>('');
     const [gameOver, setGameOver] = useState<boolean>(false);
+    const [gameStarted, setGameStarted] = useState<boolean>(false); // Ajoutez cet état
 
     // Fonction pour démarrer une partie
     const startGame = () => {
@@ -21,6 +22,7 @@ export const PageBlackJack = () => {
         setPlayerHand(playerCards);
         setDealerHand(dealerCards);
         setGameOver(false);
+        setGameStarted(true); // Le jeu a commencé
 
         if (checkForBlackjack(playerCards)) {
             setMessage('Blackjack! You win!');
@@ -85,7 +87,13 @@ export const PageBlackJack = () => {
         <div className="min-h-screen bg-green-900 flex items-center justify-center">
             <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
                 <h1 className="text-4xl font-bold mb-4 text-center">Jeu de Blackjack</h1>
-                <GameControls startGame={startGame} hit={hit} stand={stand} gameOver={gameOver} />
+                <GameControls 
+                    startGame={startGame} 
+                    hit={hit} 
+                    stand={stand} 
+                    gameOver={gameOver} 
+                    disabled={!gameStarted} // Désactiver les boutons si le jeu n'a pas commencé
+                />
                 <Hand title="Player's Hand" hand={playerHand} />
                 <Hand title="Dealer's Hand" hand={dealerHand} />
                 <div className="mt-4">
