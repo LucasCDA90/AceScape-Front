@@ -1,4 +1,3 @@
-// Définition du type Card
 export type Card = {
     suit: string;  // La couleur de la carte (hearts, spades, clubs, diamonds)
     value: string; // La valeur de la carte (A, 2, 3, ..., J, Q, K)

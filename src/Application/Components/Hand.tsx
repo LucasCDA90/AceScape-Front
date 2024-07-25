@@ -1,4 +1,4 @@
-import { Card as CardType } from '../../utils/blackjack';
+import { Card as CardType } from '../../Module/utils/blackjack';
 import { Card } from './Card';
 
 type HandProps = {

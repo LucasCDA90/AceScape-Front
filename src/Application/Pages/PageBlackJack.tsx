@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Card as CardType, getDeck, shuffleDeck, drawCard, getHandValue, checkForBlackjack, checkForBust } from '../../utils/blackjack';
+import { useState } from 'react';
+import { Card as CardType, getDeck, shuffleDeck, drawCard, getHandValue, checkForBlackjack, checkForBust } from '../../Module/utils/blackjack';
 import { GameControls } from '../Components/GameControls';
 import { Hand } from '../Components/Hand';
 
-// Composant principal pour la page du jeu de Blackjack
+// Hooks pour gérer l'etat des composants
 export const PageBlackJack = () => {
     const [deck, setDeck] = useState(shuffleDeck(getDeck()));
     const [playerHand, setPlayerHand] = useState<CardType[]>([]);
@@ -11,7 +11,7 @@ export const PageBlackJack = () => {
     const [message, setMessage] = useState<string>('');
     const [gameOver, setGameOver] = useState<boolean>(false);
 
-    // Fonction pour démarrer une nouvelle partie
+    // Fonction pour start une partie
     const startGame = () => {
         let newDeck = shuffleDeck(getDeck());
         let playerCards = [drawCard([], newDeck), drawCard([], newDeck)];
@@ -30,7 +30,7 @@ export const PageBlackJack = () => {
         }
     };
 
-    // Fonction pour piocher une carte pour le joueur
+    // Fonction pour draw a card (player)
     const hit = () => {
         if (gameOver) return;
 
@@ -52,7 +52,7 @@ export const PageBlackJack = () => {
         }
     };
 
-    // Fonction pour arrêter de piocher et laisser le dealer jouer
+    // Fonction pour stop pioche et laisser piocher le dealer
     const stand = () => {
         if (gameOver) return;
 

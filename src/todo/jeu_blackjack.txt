@@ -1,0 +1,32 @@
+Creation de la Page de Blackjack
+
+-Definition de la structure de la page du jeu (PageBlackJack).
+-Mise en place des etats pour les cartes du joueur, les cartes du dealer, l'etat du jeu (en cours ou termine), et les messages.
+-Ajout de boutons pour demarrer le jeu, tirer une carte ("Hit") et rester ("Stay").
+
+Logique du Jeu de Blackjack
+
+-Definition des couleurs (suits) et des valeurs (ranks) des cartes.
+-Creation d'une fonction pour obtenir une carte aleatoire.
+-Mise en place de la logique pour demarrer le jeu en distribuant deux cartes au joueur et au dealer.
+-Implementation des fonctions "Hit" et "Stay":
+---Hit: Ajout d'une carte à la main du joueur et verification si le joueur depasse 21 (perd).
+---Stay: Le dealer tire des cartes jusqu'à atteindre une valeur de main de 17 ou plus. Comparaison des valeurs des mains du joueur et du dealer pour determiner le gagnant.
+-Calcul de la valeur des mains en tenant compte des As qui peuvent valoir 1 ou 11.
+
+Creation du Composant pour les Cartes
+
+-Definition du composant Card pour afficher les cartes.
+-Lien entre les cartes tirees et les images SVG correspondantes.
+
+Ajout des Images des Cartes
+
+-Stockage des images des cartes au format SVG dans un repertoire (src/Application/images/cards).
+-Creation d'un fichier d'index pour importer toutes les images SVG.
+-Configuration de Vite pour gerer les fichiers SVG comme des composants React.
+
+
+Integration des Images des Cartes
+
+-Modification du composant Card pour utiliser les images SVG des cartes.
+-Verification et affichage des cartes correctes en fonction des valeurs des cartes tirees pendant le jeu.
