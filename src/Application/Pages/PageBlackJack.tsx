@@ -3,16 +3,16 @@ import { Card as CardType, getDeck, shuffleDeck, drawCard, getHandValue, checkFo
 import { GameControls } from '../Components/GameControls';
 import { Hand } from '../Components/Hand';
 
-// Hooks pour gérer l'état des composants
+// Hooks pour gerer l'etat des composants
 export const PageBlackJack = () => {
     const [deck, setDeck] = useState(shuffleDeck(getDeck()));
     const [playerHand, setPlayerHand] = useState<CardType[]>([]);
     const [dealerHand, setDealerHand] = useState<CardType[]>([]);
     const [message, setMessage] = useState<string>('');
     const [gameOver, setGameOver] = useState<boolean>(false);
-    const [gameStarted, setGameStarted] = useState<boolean>(false); // Ajoutez cet état
+    const [gameStarted, setGameStarted] = useState<boolean>(false); // Ajoutez cet etat
 
-    // Fonction pour démarrer une partie
+    // Fonction pour demarrer une partie
     const startGame = () => {
         let newDeck = shuffleDeck(getDeck());
         let playerCards = [drawCard([], newDeck), drawCard([], newDeck)];
@@ -22,7 +22,7 @@ export const PageBlackJack = () => {
         setPlayerHand(playerCards);
         setDealerHand(dealerCards);
         setGameOver(false);
-        setGameStarted(true); // Le jeu a commencé
+        setGameStarted(true); // Le jeu a commence
 
         if (checkForBlackjack(playerCards)) {
             setMessage('Blackjack! You win!');
@@ -92,7 +92,7 @@ export const PageBlackJack = () => {
                     hit={hit} 
                     stand={stand} 
                     gameOver={gameOver} 
-                    gameStarted={gameStarted} // Passez cet état au composant GameControls
+                    gameStarted={gameStarted} // Passez cet etat au composant GameControls
                 />
                 <Hand title="Player's Hand" hand={playerHand} />
                 <Hand title="Dealer's Hand" hand={dealerHand} />

@@ -14,21 +14,21 @@ export const GameControls: React.FC<GameControlsProps> = ({ startGame, hit, stan
             <button
                 onClick={startGame}
                 className="bg-blue-500 text-white px-4 py-2 rounded"
-                disabled={gameStarted && !gameOver} // Le bouton Start Game est désactivé si le jeu a commencé et n'est pas terminé
+                disabled={gameStarted && !gameOver} // Le bouton Start Game est desactive si le jeu a commence et n'est pas termine
             >
                 Start Game
             </button>
             <button
                 onClick={hit}
                 className="bg-green-500 text-white px-4 py-2 rounded"
-                disabled={!gameStarted || gameOver} // Désactiver le bouton Hit si le jeu n'a pas commencé ou si le jeu est terminé
+                disabled={!gameStarted || gameOver} // Desactiver le bouton Hit si le jeu n'a pas commence ou si le jeu est termine
             >
                 Hit
             </button>
             <button
                 onClick={stand}
                 className="bg-red-500 text-white px-4 py-2 rounded"
-                disabled={!gameStarted || gameOver} // Désactiver le bouton Stand si le jeu n'a pas commencé ou si le jeu est terminé
+                disabled={!gameStarted || gameOver} // Desactiver le bouton Stand si le jeu n'a pas commence ou si le jeu est termine
             >
                 Stand
             </button>

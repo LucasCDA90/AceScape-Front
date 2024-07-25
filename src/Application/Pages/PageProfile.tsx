@@ -26,7 +26,7 @@ export const PageProfile = () => {
                         // `/users/${valueForm.id}`
                         // const result = tarequest
 
-                        // TODO : faire la modification de l'utilisateur connecté
+                        // TODO : faire la modification de l'utilisateur connecte
                     }}>
                         <div>
                             <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
