@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 export const http = axios.create({
-    baseURL: "http://localhost:3002/"
+    baseURL: "http://localhost:3000/"
 })
 
-const url = 'user/66a23f7cbec8b089a6970ede';
+const url = 'user/66a21ba4aa3093ac9fb4880a';
 
 const data = {
   username: 'John Doe'
