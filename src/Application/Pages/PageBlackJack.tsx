@@ -3,7 +3,7 @@ import { Card as CardType, getDeck, shuffleDeck, drawCard, getHandValue, checkFo
 import { GameControls } from '../Components/GameControls';
 import { Hand } from '../Components/Hand';
 
-// Hooks pour gérer l'etat des composants
+// Hooks pour gérer l'état des composants
 export const PageBlackJack = () => {
     const [deck, setDeck] = useState(shuffleDeck(getDeck()));
     const [playerHand, setPlayerHand] = useState<CardType[]>([]);
@@ -11,7 +11,7 @@ export const PageBlackJack = () => {
     const [message, setMessage] = useState<string>('');
     const [gameOver, setGameOver] = useState<boolean>(false);
 
-    // Fonction pour start une partie
+    // Fonction pour démarrer une partie
     const startGame = () => {
         let newDeck = shuffleDeck(getDeck());
         let playerCards = [drawCard([], newDeck), drawCard([], newDeck)];
@@ -30,7 +30,7 @@ export const PageBlackJack = () => {
         }
     };
 
-    // Fonction pour draw a card (player)
+    // Fonction pour tirer une carte (joueur)
     const hit = () => {
         if (gameOver) return;
 
@@ -52,7 +52,7 @@ export const PageBlackJack = () => {
         }
     };
 
-    // Fonction pour stop pioche et laisser piocher le dealer
+    // Fonction pour arrêter de tirer des cartes et laisser le dealer jouer
     const stand = () => {
         if (gameOver) return;
 
@@ -82,9 +82,9 @@ export const PageBlackJack = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-                <h1 className="text-2xl font-bold mb-4">Jeu de Blackjack</h1>
+        <div className="min-h-screen bg-green-900 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
+                <h1 className="text-4xl font-bold mb-4 text-center">Jeu de Blackjack</h1>
                 <GameControls startGame={startGame} hit={hit} stand={stand} gameOver={gameOver} />
                 <Hand title="Player's Hand" hand={playerHand} />
                 <Hand title="Dealer's Hand" hand={dealerHand} />
