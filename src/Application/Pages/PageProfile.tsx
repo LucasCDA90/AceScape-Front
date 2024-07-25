@@ -1,18 +1,34 @@
 import { useState } from "react";
+import axios from "axios";
+import { http } from "../../Infrastructure/Http";
 
 export const PageProfile = () => {
     const valuesForm = {
-        id: "45kfdsj4543glksjgskjl2442gsdklsjfs",
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@gmail.com',
-        username: 'john_doe',
+        id: "",
+        firstName: '',
+        lastName: '',
+        email: '',
+        username: '',
         password: '',
         confirmPassword: '',
         newPassword: '',
     }
 
     const [valueForm, setValueForm] = useState(valuesForm)
+
+const url = 'user/66a21ba4aa3093ac9fb4880a';
+const data = {
+  username: 'John Doe'
+};
+const config = {
+  headers: {
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEyMWJhNGFhMzA5M2FjOWZiNDg4MGEiLCJpYXQiOjE3MjE5MDA1ODksImV4cCI6MTcyMTkwNzc4OX0.xbMGsaGDtP7aQJfHPqMFIW6vdJd7PGxYIInqXJTH2mo',
+    'Content-Type': 'application/json'
+  }
+};
+
+const response = http.put('user/66a21ba4aa3093ac9fb4880a')
+console.log(response)
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-green-900 p-6">
