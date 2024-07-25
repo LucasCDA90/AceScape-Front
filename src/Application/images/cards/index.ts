@@ -1,5 +1,3 @@
-// src/Application/images/cards/index.ts
-
 // Importer les fichiers SVG comme des modules
 import hearts2 from '../hearts-2.svg'
 import hearts3 from '../hearts-3.svg';
@@ -13,7 +11,7 @@ import hearts10 from '../hearts-10.svg';
 import heartsJ from '../hearts-J.svg';
 import heartsQ from '../hearts-Q.svg';
 import heartsK from '../hearts-K.svg';
-import heartsA from '../hearts-A.svg'; // Ajouté pour l'As de cœur
+import heartsA from '../hearts-A.svg';
 
 import clubs2 from '../clubs-2.svg';
 import clubs3 from '../clubs-3.svg';
@@ -27,7 +25,7 @@ import clubs10 from '../clubs-10.svg';
 import clubsJ from '../clubs-J.svg';
 import clubsQ from '../clubs-Q.svg';
 import clubsK from '../clubs-K.svg';
-import clubsA from '../clubs-A.svg'; // Ajouté pour l'As de trèfle
+import clubsA from '../clubs-A.svg';
 
 import diamonds2 from '../diamonds-2.svg';
 import diamonds3 from '../diamonds-3.svg';
@@ -41,7 +39,7 @@ import diamonds10 from '../diamonds-10.svg';
 import diamondsJ from '../diamonds-J.svg';
 import diamondsQ from '../diamonds-Q.svg';
 import diamondsK from '../diamonds-K.svg';
-import diamondsA from '../diamonds-A.svg'; // Ajouté pour l'As de diamant
+import diamondsA from '../diamonds-A.svg';
 
 import spades2 from '../spades-2.svg';
 import spades3 from '../spades-3.svg';
@@ -55,7 +53,7 @@ import spades10 from '../spades-10.svg';
 import spadesJ from '../spades-J.svg';
 import spadesQ from '../spades-Q.svg';
 import spadesK from '../spades-K.svg';
-import spadesA from '../spades-A.svg'; // Ajouté pour l'As de pique
+import spadesA from '../spades-A.svg';
 
 // Exporter toutes les images comme un objet
 const images: Record<string, string> = {
@@ -71,7 +69,7 @@ const images: Record<string, string> = {
     'hearts-J': heartsJ,
     'hearts-Q': heartsQ,
     'hearts-K': heartsK,
-    'hearts-A': heartsA, // Ajouté pour l'As de cœur
+    'hearts-A': heartsA,
 
     'clubs-2': clubs2,
     'clubs-3': clubs3,
@@ -85,7 +83,7 @@ const images: Record<string, string> = {
     'clubs-J': clubsJ,
     'clubs-Q': clubsQ,
     'clubs-K': clubsK,
-    'clubs-A': clubsA, // Ajouté pour l'As de trèfle
+    'clubs-A': clubsA,
 
     'diamonds-2': diamonds2,
     'diamonds-3': diamonds3,
@@ -99,7 +97,7 @@ const images: Record<string, string> = {
     'diamonds-J': diamondsJ,
     'diamonds-Q': diamondsQ,
     'diamonds-K': diamondsK,
-    'diamonds-A': diamondsA, // Ajouté pour l'As de diamant
+    'diamonds-A': diamondsA,
 
     'spades-2': spades2,
     'spades-3': spades3,
@@ -113,7 +111,7 @@ const images: Record<string, string> = {
     'spades-J': spadesJ,
     'spades-Q': spadesQ,
     'spades-K': spadesK,
-    'spades-A': spadesA, // Ajouté pour l'As de pique
+    'spades-A': spadesA,
 };
 
 export default images;

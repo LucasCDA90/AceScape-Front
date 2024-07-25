@@ -1,9 +1,9 @@
-import imagePaths from '../images/cards'; // Importer les images depuis le fichier index
+import images from '../images/cards';
 import { Card as CardType } from '../../Module/utils/blackjack';
 
 export const Card = ({ card }: { card: CardType }) => {
     const imageKey = `${card.suit}-${card.value}`;
-    const cardImage = imagePaths[imageKey];
+    const cardImage = images[imageKey];
     // Gere l'affichage auto des cartes
 
     return (

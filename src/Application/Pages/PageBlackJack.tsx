@@ -92,7 +92,7 @@ export const PageBlackJack = () => {
                     hit={hit} 
                     stand={stand} 
                     gameOver={gameOver} 
-                    disabled={!gameStarted} // Désactiver les boutons si le jeu n'a pas commencé
+                    gameStarted={gameStarted} // Passez cet état au composant GameControls
                 />
                 <Hand title="Player's Hand" hand={playerHand} />
                 <Hand title="Dealer's Hand" hand={dealerHand} />
