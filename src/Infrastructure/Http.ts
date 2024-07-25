@@ -1,22 +1,22 @@
 import axios from 'axios'
 
 export const http = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "http://localhost:3002/"
 })
 
-const url = 'user/66a21ba4aa3093ac9fb4880a';
+const url = 'user/66a23f7cbec8b089a6970ede';
 
 const data = {
   username: 'John Doe'
 };
 const config = {
   headers: {
-    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEyMWJhNGFhMzA5M2FjOWZiNDg4MGEiLCJpYXQiOjE3MjE5MDA1ODksImV4cCI6MTcyMTkwNzc4OX0.xbMGsaGDtP7aQJfHPqMFIW6vdJd7PGxYIInqXJTH2mo',
+    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEyM2Y3Y2JlYzhiMDg5YTY5NzBlZGUiLCJpYXQiOjE3MjE5MTEwMTksImV4cCI6MTcyMTkxODIxOX0.9vC8-qIxuPzfRNDcqEoiujJjoCBvurEX28exABHI-mY",
     'Content-Type': 'application/json'
   }
 };
 
-axios.put(url, data, config)
+http.put(url, data, config)
   .then(response => {
     console.log('Utilisateur mis à jour:', response.data);
   })

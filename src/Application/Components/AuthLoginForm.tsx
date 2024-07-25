@@ -1,9 +1,30 @@
+import {useState} from "react";
+import {http} from "../../Infrastructure/Http.ts";
+
 export const AuthLoginForm = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    
+    const handlerConnexion = async (e) => {
+        try {
+            const response = await http.post('/login', {
+                username: email,
+                password: password
+            })
+            
+            console.log(response)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    
     return (
         <form action="" className="flex flex-col w-64 text-white">
             <div className="flex flex-col mb-4">
                 <label htmlFor="email" className="text-white">Email address</label>
                 <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     id="email"
                     className="text-black p-2 border border-gray-600 rounded-md"
@@ -13,6 +34,8 @@ export const AuthLoginForm = () => {
             <div className="flex flex-col mb-4">
                 <label htmlFor="password" className="text-white">Password</label>
                 <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     id="password"
                     className="text-black p-2 border border-gray-600 rounded-md"
@@ -32,7 +55,7 @@ export const AuthLoginForm = () => {
             <a href="#" className="text-white mb-4">Forgot password?</a>
             <div className="flex gap-4">
                 <button className="b-vert-clair2x p-4 rounded-md">Create account</button>
-                <button className="b-vert-clair2x p-4 rounded-md">Sign in</button>
+                <button onClick={handlerConnexion} className="b-vert-clair2x p-4 rounded-md">Sign in</button>
             </div>
         </form>
     );
