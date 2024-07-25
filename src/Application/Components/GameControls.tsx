@@ -1,3 +1,5 @@
+// GameControls.tsx
+
 import React from 'react';
 
 interface GameControlsProps {
@@ -5,30 +7,30 @@ interface GameControlsProps {
     hit: () => void;
     stand: () => void;
     gameOver: boolean;
-    gameStarted: boolean; 
+    gameStarted: boolean;
 }
 
 export const GameControls: React.FC<GameControlsProps> = ({ startGame, hit, stand, gameOver, gameStarted }) => {
     return (
-        <div className="flex justify-center mb-4 space-x-4">
+        <div className="flex justify-center mb-6 space-x-4">
             <button
                 onClick={startGame}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
-                disabled={gameStarted && !gameOver} // Le bouton Start Game est desactive si le jeu a commence et n'est pas termine
+                className={`bg-violet-700 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-blue-800 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted && !gameOver ? 'opacity-100' : 'opacity-50'}`}
+                disabled={gameStarted && !gameOver}
             >
                 Start Game
             </button>
             <button
                 onClick={hit}
-                className="bg-green-500 text-white px-4 py-2 rounded"
-                disabled={!gameStarted || gameOver} // Desactiver le bouton Hit si le jeu n'a pas commence ou si le jeu est termine
+                className={`bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-green-600 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted || gameOver ? 'opacity-50' : 'opacity-100'}`}
+                disabled={!gameStarted || gameOver}
             >
                 Hit
             </button>
             <button
                 onClick={stand}
-                className="bg-red-500 text-white px-4 py-2 rounded"
-                disabled={!gameStarted || gameOver} // Desactiver le bouton Stand si le jeu n'a pas commence ou si le jeu est termine
+                className={`bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-red-600 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted || gameOver ? 'opacity-50' : 'opacity-100'}`}
+                disabled={!gameStarted || gameOver}
             >
                 Stand
             </button>
