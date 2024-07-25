@@ -22,20 +22,19 @@ const data = {
 };
 const config = {
   headers: {
-    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEyMWJhNGFhMzA5M2FjOWZiNDg4MGEiLCJpYXQiOjE3MjE5MDA1ODksImV4cCI6MTcyMTkwNzc4OX0.xbMGsaGDtP7aQJfHPqMFIW6vdJd7PGxYIInqXJTH2mo',
+    'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEyNTdmNGFhMzA5M2FjOWZiNDg4MGQiLCJpYXQiOjE3MjE5MTUzODQsImV4cCI6MTcyMTkyMjU4NH0.eYNNbt5orIzGeYym-XA34j6bqYfvvB_nmWv1r-2DjoY',
     'Content-Type': 'application/json'
   }
 };
 
-const response = http.put('user/66a21ba4aa3093ac9fb4880a')
+const response = http.put('user/66a257f4aa3093ac9fb4880d')
 console.log(response)
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-green-900 p-6">
             <div className="w-full max-w-5xl bg-white p-10 rounded-lg shadow-lg flex space-x-12">
-                {/* Profil Edit Form */}
                 <div className="w-1/2">
-                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Edit Profile</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier informations</h2>
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault()
                         console.log(valueForm)
@@ -45,50 +44,50 @@ console.log(response)
                         // TODO : faire la modification de l'utilisateur connecte
                     }}>
                         <div>
-                            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+                            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Nom d'utilisateur</label>
                             <input
                                 value={valueForm.username}
                                 onChange={(e) => setValueForm({ ...valueForm, username: e.currentTarget.value })}
                                 type="text"
                                 id="username"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your username"
+                                placeholder="Votre nom d'utilisateur"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name</label>
+                            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">Prénom</label>
                             <input
                                 value={valueForm.firstName}
                                 onChange={(e) => setValueForm({ ...valueForm, firstName: e.currentTarget.value })}
                                 type="text"
                                 id="firstName"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your first name"
+                                placeholder="Prénom"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Last Name</label>
+                            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Nom</label>
                             <input
                                 value={valueForm.lastName}
                                 onChange={(e) => setValueForm({ ...valueForm, lastName: e.currentTarget.value })}
                                 type="text"
                                 id="lastName"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your last name"
+                                placeholder="Nom"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Addresse mail</label>
                             <input
                                 value={valueForm.email}
                                 onChange={(e) => setValueForm({ ...valueForm, email: e.currentTarget.value })}
                                 type="email"
                                 id="email"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your email address"
+                                placeholder="Adresse mail"
                             />
                         </div>
 
@@ -96,51 +95,50 @@ console.log(response)
                             type="submit"
                             className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                         >
-                            Save Profile
+                            Sauvegarder
                         </button>
                     </form>
                 </div>
 
-                {/* Password Change Form */}
                 <div className="w-1/2">
-                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Change Password</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Changer mot de passe</h2>
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault()
                         console.log(valueForm)
                     }}>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Current Password</label>
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de passe actuel</label>
                             <input
                                 value={valueForm.password}
                                 onChange={(e) => setValueForm({ ...valueForm, password: e.currentTarget.value })}
                                 type="password"
                                 id="password"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your current password"
+                                placeholder="Mot de passe actuel"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">New Password</label>
+                            <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">Nouveau mot de passe</label>
                             <input
                                 value={valueForm.newPassword}
                                 onChange={(e) => setValueForm({ ...valueForm, newPassword: e.currentTarget.value })}
                                 type="password"
                                 id="newPassword"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Your new password"
+                                placeholder="Nouveau mot de passe"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirmer nouveau mot de passe</label>
                             <input
                                 value={valueForm.confirmPassword}
                                 onChange={(e) => setValueForm({ ...valueForm, confirmPassword: e.currentTarget.value })}
                                 type="password"
                                 id="confirmPassword"
                                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                placeholder="Confirm your new password"
+                                placeholder="Confirmer le nouveau mot de passe"
                             />
                         </div>
 
@@ -148,7 +146,7 @@ console.log(response)
                             type="submit"
                             className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                         >
-                            Change Password
+                            Changer mot de passe
                         </button>
                     </form>
                 </div>

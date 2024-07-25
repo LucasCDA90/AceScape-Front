@@ -15,24 +15,24 @@ export const GameControls: React.FC<GameControlsProps> = ({ startGame, hit, stan
         <div className="flex justify-center mb-6 space-x-4">
             <button
                 onClick={startGame}
-                className={`bg-violet-700 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-blue-800 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted && !gameOver ? 'opacity-100' : 'opacity-50'}`}
+                className={`bg-blue-400 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-blue-800 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted && !gameOver ? 'opacity-100' : 'opacity-50'}`}
                 disabled={gameStarted && !gameOver}
             >
-                Start Game
+                Commencer une partie
             </button>
             <button
                 onClick={hit}
                 className={`bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-green-600 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted || gameOver ? 'opacity-50' : 'opacity-100'}`}
                 disabled={!gameStarted || gameOver}
             >
-                Hit
+                Piocher
             </button>
             <button
                 onClick={stand}
                 className={`bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transition transform hover:bg-red-600 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${!gameStarted || gameOver ? 'opacity-50' : 'opacity-100'}`}
                 disabled={!gameStarted || gameOver}
             >
-                Stand
+                Arrêter ici
             </button>
         </div>
     );

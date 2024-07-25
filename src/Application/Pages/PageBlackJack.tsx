@@ -94,8 +94,8 @@ export const PageBlackJack = () => {
                     gameOver={gameOver} 
                     gameStarted={gameStarted} // Passez cet etat au composant GameControls
                 />
-                <Hand title="Player's Hand" hand={playerHand} />
-                <Hand title="Dealer's Hand" hand={dealerHand} />
+                <Hand title="Main du joueur" hand={playerHand} />
+                <Hand title="Main de la banque" hand={dealerHand} />
                 <div className="mt-4">
                     <p>{message}</p>
                 </div>

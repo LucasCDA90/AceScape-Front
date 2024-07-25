@@ -9,7 +9,7 @@ export const ApplicationLayout: React.FC = () => {
           to={"/"}
           className="px-24 py-8 text-lg font-semibold rounded-md transition-transform duration-300 ease-in-out transform hover:hover:bg-green-600"
         >
-          Home
+          Acceuil
         </NavLink>
         <NavLink
           to={"/blackjack"}
@@ -21,13 +21,13 @@ export const ApplicationLayout: React.FC = () => {
           to={"/profile"}
           className="px-24 py-8 text-lg font-semibold rounded-md transition-transform duration-300 ease-in-out transform hover:hover:bg-green-600"
         >
-          Profile
+          Profil
         </NavLink>
         <NavLink
           to={"/rules"}
           className="px-24 py-8 text-lg font-semibold rounded-md transition-transform duration-300 ease-in-out transform hover:hover:bg-green-600"
         >
-          How to play
+          Comment jouer
         </NavLink>
       </nav>
       <Outlet />
