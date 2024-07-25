@@ -1,5 +1,4 @@
 import logo from './Application/images/logo-ace-scape.png'
-import { AuthLoginForm } from './Application/Components/AuthLoginForm'
 
 export const App = () => {
   return (
@@ -12,6 +11,7 @@ export const App = () => {
           <span className='block mb-4'>"Le blackjack est une danse entre la chance et la stratégie. Saurez-vous trouver le bon équilibre ?"</span>
           <span>"Dans le blackjack, chaque carte est une opportunité. Prenez le risque et devenez maître du jeu."</span>
         </div>
+        
       </div>
     </div>
   )
