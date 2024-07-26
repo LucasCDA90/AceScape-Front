@@ -8,9 +8,9 @@ type HandProps = {
 
 // Composant pour afficher une main de cartes
 export const Hand = ({ title, hand }: HandProps) => (
-    <div>
-        <h2 className="text-xl font-bold">{title}</h2>
-        <div className="flex space-x-2 mb-4">
+    <div className="text-center">
+        <h2 className="text-2xl font-bold mb-2">{title}</h2>
+        <div className="flex space-x-2 overflow-x-auto">
             {hand.map((card, index) => (
                 <Card key={index} card={card} />
             ))}

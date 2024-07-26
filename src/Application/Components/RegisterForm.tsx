@@ -25,7 +25,7 @@ export const RegisterForm = () => {
             console.error(error);
         }
     };
-
+// marche pas
     const handleSubmit = (e:any) => {
         e.preventDefault();
         if (termsAccepted) {
