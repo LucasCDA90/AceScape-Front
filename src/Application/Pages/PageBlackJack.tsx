@@ -3,16 +3,16 @@ import { Card as CardType, getDeck, shuffleDeck, drawCard, getHandValue, checkFo
 import { GameControls } from '../Components/GameControls';
 import { Hand } from '../Components/Hand';
 
-// Hooks pour gerer l'etat des composants
+// Hooks pour gérer l'état des composants
 export const PageBlackJack = () => {
     const [deck, setDeck] = useState(shuffleDeck(getDeck()));
     const [playerHand, setPlayerHand] = useState<CardType[]>([]);
     const [dealerHand, setDealerHand] = useState<CardType[]>([]);
     const [message, setMessage] = useState<string>('');
     const [gameOver, setGameOver] = useState<boolean>(false);
-    const [gameStarted, setGameStarted] = useState<boolean>(false); // Ajoutez cet etat
+    const [gameStarted, setGameStarted] = useState<boolean>(false);
 
-    // Fonction pour demarrer une partie
+    // Fonction pour démarrer une partie
     const startGame = () => {
         let newDeck = shuffleDeck(getDeck());
         let playerCards = [drawCard([], newDeck), drawCard([], newDeck)];
@@ -22,13 +22,13 @@ export const PageBlackJack = () => {
         setPlayerHand(playerCards);
         setDealerHand(dealerCards);
         setGameOver(false);
-        setGameStarted(true); // Le jeu a commence
+        setGameStarted(true);
 
         if (checkForBlackjack(playerCards)) {
-            setMessage('Blackjack! You win!');
+            setMessage('Blackjack! Vous gagnez !');
             setGameOver(true);
         } else {
-            setMessage('Game started. Hit or stand?');
+            setMessage('Partie commencée. Tirer ou rester ?');
         }
     };
 
@@ -44,13 +44,13 @@ export const PageBlackJack = () => {
         setPlayerHand(newPlayerHand);
 
         if (checkForBust(newPlayerHand)) {
-            setMessage('Bust! You lose.');
+            setMessage('Dépassement ! Vous perdez.');
             setGameOver(true);
         } else if (checkForBlackjack(newPlayerHand)) {
-            setMessage('Blackjack! You win!');
+            setMessage('Blackjack! Vous gagnez !');
             setGameOver(true);
         } else {
-            setMessage('Hit or stand?');
+            setMessage('Tirer ou rester ?');
         }
     };
 
@@ -72,15 +72,18 @@ export const PageBlackJack = () => {
         const playerValue = getHandValue(playerHand);
         const dealerValue = getHandValue(newDealerHand);
 
-        if (checkForBust(newDealerHand) || playerValue > dealerValue) {
-            setMessage('You win!');
+        if (checkForBust(newDealerHand)) {
+            setMessage('Le croupier dépasse ! Vous gagnez !');
+        } else if (playerValue > dealerValue) {
+            setMessage('Vous gagnez !');
         } else if (playerValue === dealerValue) {
-            setMessage('Push.');
+            setMessage('Égalité.');
         } else {
-            setMessage('Dealer wins.');
+            setMessage('Le croupier gagne.');
         }
 
         setGameOver(true);
+        setGameStarted(false); // Le jeu est terminé
     };
 
     return (
@@ -92,10 +95,10 @@ export const PageBlackJack = () => {
                     hit={hit} 
                     stand={stand} 
                     gameOver={gameOver} 
-                    gameStarted={gameStarted} // Passez cet etat au composant GameControls
+                    gameStarted={gameStarted} // Passer l'état du jeu
                 />
-                <Hand title="Main du joueur" hand={playerHand} />
-                <Hand title="Main de la banque" hand={dealerHand} />
+                <Hand title="Main du Joueur" hand={playerHand} />
+                <Hand title="Main du Croupier" hand={dealerHand} />
                 <div className="mt-4">
                     <p>{message}</p>
                 </div>
