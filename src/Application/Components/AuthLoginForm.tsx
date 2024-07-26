@@ -48,16 +48,7 @@ export const AuthLoginForm = () => {
                             placeholder="Entrez votre mot de passe"
                         />
                     </div>
-                    <div className="flex items-center mb-4">
-                        <input
-                            type="checkbox"
-                            id="terms"
-                            className="mr-2"
-                        />
-                        <label htmlFor="terms" className="text-sm text-gray-600">
-                            J'accepte les <a href="#" className="text-green-600 underline">termes et conditions</a> et la <a href="#" className="text-green-600 underline">politique de cookies</a>.
-                        </label>
-                    </div>
+                    
                     <a href="#" className="text-green-600 hover:underline">Mot de passe oublié ?</a>
                     <button
                         type="submit"

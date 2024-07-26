@@ -8,6 +8,8 @@ export const RegisterForm = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [termsAccepted, setTermsAccepted] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleRegister = async () => {
         try {
@@ -24,14 +26,21 @@ export const RegisterForm = () => {
         }
     };
 
+    const handleSubmit = (e:any) => {
+        e.preventDefault();
+        if (termsAccepted) {
+            setErrorMessage("");
+            handleRegister();
+        } else {
+            setErrorMessage("Vous devez accepter les termes et conditions pour créer un compte.");
+        }
+    };
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-green-900 p-6">
             <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm">
                 <h2 className="text-2xl font-bold mb-6 text-center">Créer un compte</h2>
-                <form className="space-y-6" onSubmit={(e) => {
-                    e.preventDefault();
-                    handleRegister();
-                }}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">Prénom</label>
                         <input
@@ -87,9 +96,25 @@ export const RegisterForm = () => {
                             placeholder="Entrez votre mot de passe"
                         />
                     </div>
+                    <div className="flex items-center mb-4">
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            checked={termsAccepted}
+                            onChange={(e) => setTermsAccepted(e.target.checked)}
+                            className="mr-2 border-gray-300 rounded"
+                        />
+                        <label htmlFor="terms" className="text-sm text-gray-600">
+                            J'accepte les <a href="#" className="text-green-600 underline">termes et conditions</a> et la <a href="#" className="text-green-600 underline">politique de cookies</a>.
+                        </label>
+                    </div>
+                    {errorMessage && (
+                        <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
+                    )}
                     <button
                         type="submit"
-                        className="w-full bg-green-600 text-white py-3 px-4 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className={`w-full bg-green-600 text-white py-3 px-4 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 ${!termsAccepted && 'opacity-50 cursor-not-allowed'}`}
+                        disabled={!termsAccepted}
                     >
                         Créer un compte
                     </button>
