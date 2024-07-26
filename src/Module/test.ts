@@ -2,8 +2,9 @@ export const valueForm = {
     firstName: 'John',
     lastName: 'Doe',
     email: 'johndoe@gmail.com',
+    username: "Johndoe",
     password: '',
-    copnfirmPassword: '',
+    confirmPassword: '',
     newPassword: '',
 }
 

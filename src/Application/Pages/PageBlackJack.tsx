@@ -13,9 +13,9 @@ export const PageBlackJack = () => {
     const [gameStarted, setGameStarted] = useState<boolean>(false);
 
     const startGame = () => {
-        let newDeck = shuffleDeck(getDeck());
-        let playerCards = [drawCard([], newDeck), drawCard([], newDeck)];
-        let dealerCards = [drawCard([], newDeck), drawCard([], newDeck)];
+        let newDeck = shuffleDeck(getDeck()); // Choisis un deck puis le mélange
+        let playerCards = [drawCard([], newDeck), drawCard([], newDeck)]; // Pioche une carte de newDeck et la place dans le tableau vide, 
+        let dealerCards = [drawCard([], newDeck), drawCard([], newDeck)]; // la fonction permet de retirer la carte piochée
 
         setDeck(newDeck);
         setPlayerHand(playerCards);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { http } from "../../Infrastructure/Http";
 
 export const PageProfile = () => {
-    const valuesForm = {
+    const initialValues = {
         id: "",
         firstName: '',
         lastName: '',
@@ -13,21 +13,29 @@ export const PageProfile = () => {
         newPassword: '',
     }
 
-const [valueForm, setValueForm] = useState(valuesForm)
+    const [valueForm, setValueForm] = useState(initialValues);
 
-
-const response = http.put('user/66a257f4aa3093ac9fb4880d')
-console.log(response)
+    const handleSubmit = async (e:any) => {
+        e.preventDefault();
+        try {
+            const response = await http.put('user/66a257f4aa3093ac9fb4880d', valueForm, {
+                headers: {
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzOTRlZDFlMWFiM2I4MzJmNzY1N2EiLCJpYXQiOjE3MjE5OTY1MjksImV4cCI6MTcyMjAwMzcyOX0.zrU9q0vIwIrAZTDtB65foeqt4I5X7AUYbK3QGeCLu80",
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log('User updated successfully', response.data);
+        } catch (error) {
+            console.error('Error updating user');
+        }
+    };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-green-900 p-6">
             <div className="w-full max-w-5xl bg-white p-10 rounded-lg shadow-lg flex space-x-12">
                 <div className="w-1/2">
                     <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier informations</h2>
-                    <form className="space-y-6" onSubmit={(e) => {
-                        e.preventDefault()
-                        console.log(valueForm)
-                    }}>
+                    <form className="space-y-6" >
                         <div>
                             <label htmlFor="username" className="block text-sm font-medium text-gray-700">Nom d'utilisateur</label>
                             <input
@@ -79,6 +87,11 @@ console.log(response)
                         <button
                             type="submit"
                             className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                            onSubmit={(e) => {
+                                e.preventDefault()
+                                handleSubmit
+                            }
+                        }
                         >
                             Sauvegarder
                         </button>

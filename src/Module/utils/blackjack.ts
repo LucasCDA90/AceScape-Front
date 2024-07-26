@@ -24,19 +24,19 @@ export const getDeck = (): Card[] => {
     return deck;
 };
 
-// Fonction pour melanger un deck de cartes
+// Fonction pour melanger un deck de cartes -> l'algorithme de mélange de Fisher-Yates
 export const shuffleDeck = (deck: Card[]): Card[] => {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]]; // echange de deux cartes
+        [deck[i], deck[j]] = [deck[j], deck[i]]; 
     }
     return deck;
 };
 
 // Fonction pour piocher une carte du deck et l'ajouter à la main
 export const drawCard = (hand: Card[], deck: Card[]): Card => {
-    const card = deck.pop()!; // Retire la dernière carte du deck
-    hand.push(card); // Ajoute la carte à la main
+    const card = deck.pop()!; // Retire la carte du dessus du deck qui correspond a la derniere du tableau
+    hand.push(card); // Ajoute cette carte à la main
     return card;
 };
 
