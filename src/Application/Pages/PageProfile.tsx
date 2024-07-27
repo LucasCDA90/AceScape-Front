@@ -18,7 +18,7 @@ export const PageProfile = () => {
     const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
-            const response = await http.put('user/66a257f4aa3093ac9fb4880d', valueForm, {
+            const response = await http.put('user/66a394ed1e1ab3b832f7657a', valueForm, {
                 headers: {
                     'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzOTRlZDFlMWFiM2I4MzJmNzY1N2EiLCJpYXQiOjE3MjE5OTY1MjksImV4cCI6MTcyMjAwMzcyOX0.zrU9q0vIwIrAZTDtB65foeqt4I5X7AUYbK3QGeCLu80",
                     'Content-Type': 'application/json',
@@ -87,11 +87,7 @@ export const PageProfile = () => {
                         <button
                             type="submit"
                             className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                            onSubmit={(e) => {
-                                e.preventDefault()
-                                handleSubmit
-                            }
-                        }
+                            onSubmit={handleSubmit}
                         >
                             Sauvegarder
                         </button>

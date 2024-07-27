@@ -23,11 +23,10 @@ const config = {
   }
 };
 
-/* http.put(url, data, config)
+http.put(url, data, config)
   .then(response => {
     console.log('Utilisateur mis à jour:', response.data);
   })
   .catch(error => {
     console.error('Erreur lors de la mise à jour:', error);
   });
- */
