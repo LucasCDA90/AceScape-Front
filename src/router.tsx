@@ -7,6 +7,7 @@ import { RegisterForm } from './Application/Components/RegisterForm.tsx';
 import { AuthLoginForm } from './Application/Components/AuthLoginForm.tsx';
 import { PageAcceuil } from './Application/Pages/PageAcceuil.tsx';
 import { ApplicationLayout } from './Application/Components/Layout.tsx';
+import { PageProfileEdit } from './Application/Pages/PageProfileEdit.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <PageProfile />,
+      },
+      {
+        path: '/profile/edit',
+        element: <PageProfileEdit />,
       },
       {
         path: '/rules',
