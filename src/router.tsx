@@ -6,41 +6,41 @@ import { PageRules } from './Application/Pages/PageRules.tsx';
 import { RegisterForm } from './Application/Components/RegisterForm.tsx';
 import { AuthLoginForm } from './Application/Components/AuthLoginForm.tsx';
 import { PageAcceuil } from './Application/Pages/PageAcceuil.tsx';
-import { ApplicationLayout } from './Application/Components/Layout.tsx'; // Importation du layout
+import { ApplicationLayout } from './Application/Components/Layout.tsx';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />, // Page d'accueil publique
+    element: <App />,
   },
   {
     path: '/',
-    element: <ApplicationLayout />, // Layout pour les pages protégées
+    element: <ApplicationLayout />,
     children: [
       {
         path: '/home',
-        element: <PageAcceuil />, // Page d'accueil après connexion avec layout
+        element: <PageAcceuil />,
       },
       {
         path: '/blackjack',
-        element: <PageBlackJack />, // Page protégée
+        element: <PageBlackJack />,
       },
       {
         path: '/profile',
-        element: <PageProfile />, // Page protégée
+        element: <PageProfile />,
       },
       {
         path: '/rules',
-        element: <PageRules />, // Page protégée
+        element: <PageRules />,
       },
     ],
   },
   {
     path: '/register',
-    element: <RegisterForm />, // Page d'inscription publique
+    element: <RegisterForm />,
   },
   {
     path: '/login',
-    element: <AuthLoginForm />, // Page de connexion publique
+    element: <AuthLoginForm />,
   }
 ]);
