@@ -25,15 +25,15 @@ export const PageProfile = () => {
         return { firstName, lastName, email, username };
     };
 
-    const handleSubmit = async (e:any) => {
+    const handleSubmit = async (e:React.FormEvent) => {
         e.preventDefault();
         const userFields = getUserFields();
         console.log(userFields);
 
         try {
-            const response = await http.put('user/66a7425d7978d393e05c2d06', userFields, {
+            const response = await http.put('user/66a782ad7978d393e05c2d26', userFields, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3NDI1ZDc5NzhkMzkzZTA1YzJkMDYiLCJpYXQiOjE3MjIyMzc1NDIsImV4cCI6MTcyMjI0NDc0Mn0.fmlkm08anIGY5nm2t1eIJQtUnJvgA6h3HB_a8Ao9DUU",
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3ODJhZDc5NzhkMzkzZTA1YzJkMjYiLCJpYXQiOjE3MjIyNTQwMDAsImV4cCI6MTcyMjI2MTIwMH0.8t3OqFj4t3xUm6DuQ3pgnVLxjU6rHRJ-FZyA2SpZjnU",
                     'Content-Type': 'application/json',
                 },
             });

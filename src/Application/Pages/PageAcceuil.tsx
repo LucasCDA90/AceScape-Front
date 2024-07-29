@@ -1,0 +1,20 @@
+import logo from '../../Application/images/logo-ace-scape.png';
+
+export const PageAcceuil = () => {
+    return (
+        <div className='bg-green-900 text-white h-screen flex'>
+        <div className='w-1/2 flex items-center justify-center'>
+        <img src={logo} alt=""/>
+        </div>
+        <div className='w-1/2 flex flex-col justify-center items-start p-8'>
+          <div className='mb-8'>
+            <span className='block mb-4'>"Le blackjack est une danse entre la chance et la stratégie. Saurez-vous trouver le bon équilibre ?"</span>
+            <span>"Dans le blackjack, chaque carte est une opportunité. Prenez le risque et devenez maître du jeu."</span>
+          </div>
+          <div className='flex gap-4'>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  

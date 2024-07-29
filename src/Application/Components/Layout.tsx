@@ -6,7 +6,7 @@ export const ApplicationLayout: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <nav className="flex justify-around items-center bg-green-800 text-white pl-6 pr-6">
         <NavLink
-          to={"/"}
+          to={"/home"}
           className="px-24 py-8 text-lg font-semibold rounded-md transition-transform duration-300 ease-in-out transform hover:hover:bg-green-600"
         >
           Acceuil
