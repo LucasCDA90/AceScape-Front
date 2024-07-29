@@ -95,7 +95,7 @@ export const PageProfile = () => {
                 </div>
 
                 <div className="w-1/2">
-                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Changer mot de passe</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier mot de passe</h2>
                     <form className="space-y-6" onSubmit={(e) => {
                         e.preventDefault()
                         console.log(valueForm)
