@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { http } from "../../Infrastructure/Http.ts";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 export const RegisterForm = () => {
@@ -10,23 +10,30 @@ export const RegisterForm = () => {
     const [password, setPassword] = useState("");
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleRegister = async () => {
         try {
-            const response = await http.post('/register', {
+            const response = await axios.post('http://localhost:3002/user', {
                 firstName,
                 lastName,
                 username,
                 email,
                 password
             });
-            console.log(response);
-        } catch (error) {
-            console.error(error);
+            setSuccessMessage("Inscription réussie ! Vous pouvez maintenant vous connecter.");
+            setErrorMessage("");
+            setFirstName("");
+            setLastName("");
+            setUsername("");
+            setEmail("");
+            setPassword("");
+        } catch (error: any) {
+            setErrorMessage(error.response?.data?.message || 'Erreur lors de l\'inscription.');
         }
     };
-// marche pas
-    const handleSubmit = (e:any) => {
+
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (termsAccepted) {
             setErrorMessage("");
@@ -111,6 +118,9 @@ export const RegisterForm = () => {
                     {errorMessage && (
                         <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
                     )}
+                    {successMessage && (
+                        <div className="text-green-500 text-sm mb-4">{successMessage}</div>
+                    )}
                     <button
                         type="submit"
                         className={`w-full bg-green-600 text-white py-3 px-4 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 ${!termsAccepted && 'opacity-50 cursor-not-allowed'}`}
@@ -119,6 +129,9 @@ export const RegisterForm = () => {
                         Créer un compte
                     </button>
                 </form>
+                <div className="mt-6 text-center">
+                    <Link to="/login" className="text-green-600 hover:underline">Déjà un compte ? Connectez-vous</Link>
+                </div>
                 <div className="mt-6 text-center">
                     <Link to="/" className="text-green-600 hover:underline">Retour à l'accueil</Link>
                 </div>

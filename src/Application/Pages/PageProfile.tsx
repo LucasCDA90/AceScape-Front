@@ -15,12 +15,25 @@ export const PageProfile = () => {
 
     const [valueForm, setValueForm] = useState(initialValues);
 
+    const getPasswordFields = () => {
+        const { password, newPassword, confirmPassword } = valueForm;
+        return { password, newPassword, confirmPassword };
+    };
+
+    const getUserFields = () => {
+        const { firstName, lastName, email, username } = valueForm;
+        return { firstName, lastName, email, username };
+    };
+
     const handleSubmit = async (e:any) => {
         e.preventDefault();
+        const userFields = getUserFields();
+        console.log(userFields);
+
         try {
-            const response = await http.put('user/66a394ed1e1ab3b832f7657a', valueForm, {
+            const response = await http.put('user/66a7425d7978d393e05c2d06', userFields, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmEzOTRlZDFlMWFiM2I4MzJmNzY1N2EiLCJpYXQiOjE3MjE5OTY1MjksImV4cCI6MTcyMjAwMzcyOX0.zrU9q0vIwIrAZTDtB65foeqt4I5X7AUYbK3QGeCLu80",
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3NDI1ZDc5NzhkMzkzZTA1YzJkMDYiLCJpYXQiOjE3MjIyMzc1NDIsImV4cCI6MTcyMjI0NDc0Mn0.fmlkm08anIGY5nm2t1eIJQtUnJvgA6h3HB_a8Ao9DUU",
                     'Content-Type': 'application/json',
                 },
             });
@@ -35,7 +48,7 @@ export const PageProfile = () => {
             <div className="w-full max-w-5xl bg-white p-10 rounded-lg shadow-lg flex space-x-12">
                 <div className="w-1/2">
                     <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier informations</h2>
-                    <form className="space-y-6" >
+                    <form className="space-y-6" onSubmit={handleSubmit} >
                         <div>
                             <label htmlFor="username" className="block text-sm font-medium text-gray-700">Nom d'utilisateur</label>
                             <input
@@ -87,7 +100,6 @@ export const PageProfile = () => {
                         <button
                             type="submit"
                             className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                            onSubmit={handleSubmit}
                         >
                             Sauvegarder
                         </button>
@@ -97,8 +109,9 @@ export const PageProfile = () => {
                 <div className="w-1/2">
                     <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier mot de passe</h2>
                     <form className="space-y-6" onSubmit={(e) => {
-                        e.preventDefault()
-                        console.log(valueForm)
+                        e.preventDefault();
+                        const passwordFields = getPasswordFields();
+                        console.log(passwordFields);
                     }}>
                         <div>
                             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de passe actuel</label>

@@ -1,23 +1,36 @@
 import { useState } from "react";
-import { http } from "../../Infrastructure/Http.ts";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AuthLoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate(); // Redirection react-router
 
     const handlerConnexion = async () => {
         try {
-            const response = await http.post('/login', {
+            const response = await axios.post('http://localhost:3002/login', {
                 username,
                 password
             });
-            console.log(response);
-        } catch (error) {
-            console.error(error);
+            
+
+            setSuccessMessage("Connexion réussie !");
+            setErrorMessage("");
+
+            
+            localStorage.setItem('token', response.data.token);
+            
+            
+            navigate('/');
+        } catch (error: any) {
+            setSuccessMessage("");
+            setErrorMessage(error.response?.data?.message || 'Erreur lors de la connexion.');
         }
     };
-    
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-green-900 p-6">
             <div className="bg-white text-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm">
@@ -50,6 +63,15 @@ export const AuthLoginForm = () => {
                     </div>
                     
                     <a href="#" className="text-green-600 hover:underline">Mot de passe oublié ?</a>
+                    
+                    {errorMessage && (
+                        <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
+                    )}
+                    
+                    {successMessage && (
+                        <div className="text-green-500 text-sm mb-4">{successMessage}</div>
+                    )}
+
                     <button
                         type="submit"
                         className="w-full bg-green-600 text-white py-3 px-4 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
