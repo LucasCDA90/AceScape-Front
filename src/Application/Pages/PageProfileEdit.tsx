@@ -51,10 +51,10 @@ export const PageProfileEdit = () => {
                 lastName,
                 email,
                 username,
-                ...(newPassword && { newPassword }), // Inclut le nouveau mot de passe uniquement s'il est fourni
+                ...(newPassword && { newPassword }), 
             }, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3OTkxYzc5NzhkMzkzZTA1YzJkMzAiLCJpYXQiOjE3MjIyNTk4MDIsImV4cCI6MTcyMjI2NzAwMn0.B0jFeAzumeaUwyy4Oe-bVyHHzaXDNb4QCqYoKjjANVk", // Assurez-vous de gérer correctement le token d'authentification
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3OTkxYzc5NzhkMzkzZTA1YzJkMzAiLCJpYXQiOjE3MjIyNTk4MDIsImV4cCI6MTcyMjI2NzAwMn0.B0jFeAzumeaUwyy4Oe-bVyHHzaXDNb4QCqYoKjjANVk", 
                     'Content-Type': 'application/json',
                 },
             });
@@ -74,7 +74,7 @@ export const PageProfileEdit = () => {
         }
 
         try {
-            await axios.put('http://localhost:3002/user/change-password', {
+            await axios.put('http://localhost:3002/user', {
                 password,
                 newPassword,
             }, {
@@ -98,7 +98,6 @@ export const PageProfileEdit = () => {
             <div className="w-full max-w-5xl bg-white p-10 rounded-lg shadow-lg">
                 <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Modifier le Profil</h2>
                 <div className="flex space-x-12">
-                    {/* Formulaire de modification des informations */}
                     <div className="w-1/2">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Informations de base</h3>
                         <form className="space-y-6" onSubmit={handleUpdateInfo}>
@@ -159,7 +158,6 @@ export const PageProfileEdit = () => {
                         </form>
                     </div>
 
-                    {/* Formulaire de modification du mot de passe */}
                     <div className="w-1/2">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Changer le mot de passe</h3>
                         <form className="space-y-6" onSubmit={handleUpdatePassword}>
@@ -206,7 +204,6 @@ export const PageProfileEdit = () => {
                                 Changer mot de passe
                             </button>
 
-                            {/* Bouton pour revenir à la page de profil */}
                             <button
                                 type="button"
                                 onClick={handleBackToProfile}
