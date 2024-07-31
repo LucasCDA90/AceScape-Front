@@ -1,30 +1,8 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
-
-interface User {
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-}
+import {useUserInfo} from "../../Module/User.hook.ts";
 
 export const PageProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get('/user'); //marche pas
-        //const response = await axios.get('http://localhost:3002/user/'); //marche pas non plus
-        setUser(response.data);
-      } catch (error) {
-        console.error('Erreur lors de la récupération des informations utilisateur', error);
-      }
-    };
-
-    fetchUser();
-  }, []);
+  const user = useUserInfo()
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-green-900 p-6">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { User } from "../../Module/User";
+import {User, user$} from "../../Module/User";
 
 export const AuthLoginForm = () => {
     const [username, setUsername] = useState("");
@@ -12,19 +12,14 @@ export const AuthLoginForm = () => {
 
     const handlerConnexion = async () => {
         try {
-            const response = await axios.post('http://localhost:3002/login', {
-                username,
-                password
-            });
-            const user = new User(
-                firstName: response.data.firstName, 
-                lastName: response.data.lastName, 
-                username: response.data.username, 
-                email: response.data.email
-            )
-            console.log(response)
+            //user$.subscribe(user => console.log(user))
+            const response = await axios.post<User>(
+                'http://localhost:3002/login',
+                { username, password}
+            );
             
-
+            user$.next(response.data);
+            
             setSuccessMessage("Connexion réussie !");
             setErrorMessage("");
             localStorage.setItem('token', response.data.token);

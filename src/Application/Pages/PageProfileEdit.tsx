@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {useUserInfo} from "../../Module/User.hook.ts";
 
 export const PageProfileEdit = () => {
+    const user = useUserInfo()
+    
     const [valueForm, setValueForm] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        username: '',
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+        email: user?.email,
+        username: user?.username,
+    });
+    
+    const [valuePasswordForm, setValuePasswordForm] = useState({
         password: '',
         confirmPassword: '',
         newPassword: '',
@@ -53,7 +59,7 @@ export const PageProfileEdit = () => {
                 username,
             }, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE5ZGM1OWNiNzU2ZTllMTY1OWViODUiLCJpYXQiOjE3MjI0MDgzNjYsImV4cCI6MTcyMjQxNTU2Nn0.Pcjo4ysliGM9bwRz5kBZHhT3QdRZaroPF7o7IT2DuIY", 
+                    'Authorization': `Bearer ${user?.token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -65,7 +71,7 @@ export const PageProfileEdit = () => {
 
     const handleUpdatePassword = async (e: React.FormEvent) => {
         e.preventDefault();
-        const { password, newPassword, confirmPassword } = valueForm;
+        const { password, newPassword, confirmPassword } = valuePasswordForm;
 
         if (newPassword !== confirmPassword) {
             console.error('Les nouveaux mots de passe ne correspondent pas.');
@@ -163,7 +169,7 @@ export const PageProfileEdit = () => {
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de passe actuel</label>
                                 <input
-                                    value={valueForm.password}
+                                    value={valuePasswordForm.password}
                                     onChange={(e) => setValueForm({ ...valueForm, password: e.currentTarget.value })}
                                     type="password"
                                     id="password"
@@ -175,7 +181,7 @@ export const PageProfileEdit = () => {
                             <div>
                                 <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">Nouveau mot de passe</label>
                                 <input
-                                    value={valueForm.newPassword}
+                                    value={valuePasswordForm.newPassword}
                                     onChange={(e) => setValueForm({ ...valueForm, newPassword: e.currentTarget.value })}
                                     type="password"
                                     id="newPassword"
@@ -187,7 +193,7 @@ export const PageProfileEdit = () => {
                             <div>
                                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirmer nouveau mot de passe</label>
                                 <input
-                                    value={valueForm.confirmPassword}
+                                    value={valuePasswordForm.confirmPassword}
                                     onChange={(e) => setValueForm({ ...valueForm, confirmPassword: e.currentTarget.value })}
                                     type="password"
                                     id="confirmPassword"
