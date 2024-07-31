@@ -1,3 +1,5 @@
+import { BehaviorSubject } from "rxjs";
+
 export class User {
     firstName: string;
     lastName: string;
@@ -13,3 +15,5 @@ export class User {
         this.password = password;
     }
 }
+
+export const user$ = new BehaviorSubject<User | null>(null)

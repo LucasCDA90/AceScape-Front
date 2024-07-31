@@ -15,10 +15,10 @@ export const PageProfileEdit = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
+/*     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/user/66a7991c7978d393e05c2d30');
+                const response = await axios.put('http://localhost:3002/user/${userId}');
                 setValueForm({
                     firstName: response.data.firstName,
                     lastName: response.data.lastName,
@@ -34,7 +34,7 @@ export const PageProfileEdit = () => {
         };
 
         fetchUser();
-    }, []);
+    }, []); */
 
     const handleUpdateInfo = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -46,15 +46,14 @@ export const PageProfileEdit = () => {
         }
 
         try {
-            await axios.put('http://localhost:3002/user/66a7991c7978d393e05c2d30', {
+            await axios.put('://localhost:3002/user/66a9dc59cb756e9e1659eb85', {
                 firstName,
                 lastName,
                 email,
                 username,
-                ...(newPassword && { newPassword }), 
             }, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3OTkxYzc5NzhkMzkzZTA1YzJkMzAiLCJpYXQiOjE3MjIyNTk4MDIsImV4cCI6MTcyMjI2NzAwMn0.B0jFeAzumeaUwyy4Oe-bVyHHzaXDNb4QCqYoKjjANVk", 
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE5ZGM1OWNiNzU2ZTllMTY1OWViODUiLCJpYXQiOjE3MjI0MDgzNjYsImV4cCI6MTcyMjQxNTU2Nn0.Pcjo4ysliGM9bwRz5kBZHhT3QdRZaroPF7o7IT2DuIY", 
                     'Content-Type': 'application/json',
                 },
             });
@@ -74,12 +73,12 @@ export const PageProfileEdit = () => {
         }
 
         try {
-            await axios.put('http://localhost:3002/user', {
+            await axios.put('http://localhost:3002/user/66a9dc59cb756e9e1659eb85', {
                 password,
                 newPassword,
             }, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE3OTkxYzc5NzhkMzkzZTA1YzJkMzAiLCJpYXQiOjE3MjIyNTk4MDIsImV4cCI6MTcyMjI2NzAwMn0.B0jFeAzumeaUwyy4Oe-bVyHHzaXDNb4QCqYoKjjANVk", // Assurez-vous de gérer correctement le token d'authentification
+                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE5ZGM1OWNiNzU2ZTllMTY1OWViODUiLCJpYXQiOjE3MjI0MDgzNjYsImV4cCI6MTcyMjQxNTU2Nn0.Pcjo4ysliGM9bwRz5kBZHhT3QdRZaroPF7o7IT2DuIY",
                     'Content-Type': 'application/json',
                 },
             });

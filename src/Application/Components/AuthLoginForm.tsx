@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { User } from "../../Module/User";
 
 export const AuthLoginForm = () => {
     const [username, setUsername] = useState("");
@@ -15,7 +16,15 @@ export const AuthLoginForm = () => {
                 username,
                 password
             });
+            const user = new User(
+                firstName: response.data.firstName, 
+                lastName: response.data.lastName, 
+                username: response.data.username, 
+                email: response.data.email
+            )
+            console.log(response)
             
+
             setSuccessMessage("Connexion réussie !");
             setErrorMessage("");
             localStorage.setItem('token', response.data.token);
