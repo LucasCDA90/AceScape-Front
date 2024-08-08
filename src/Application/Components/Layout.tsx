@@ -1,33 +1,31 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { user$ } from "../../Module/User";
+import {useUserInfo} from "../../Module/User.hook.ts";
 
 export const ApplicationLayout: React.FC = () => {
   const navigate = useNavigate();
+  const user = useUserInfo()
 
   const handleLogout = async () => {
-    console.log("ok")
-    user$.subscribe(async (user) => {
-      if (user && user.token) {
-        try {
-          await axios.post("http://localhost:3002/logout", {}, {
-            headers: {
-              Authorization: `Bearer ${user.token}`
-            }
-          });
-          
-          localStorage.removeItem('token');
-          user$.next(null);
-          navigate("/");
-        } catch (error) {
-          console.error("Erreur lors de la déconnexion :");
-        }
-      } else {
-        console.error("Erreur : Utilisateur non connecté ou jeton manquant.");
+    if(user){
+      try {
+        await axios.post("http://localhost:3002/logout", {}, {
+          headers: {
+            Authorization: `Bearer ${user.token}`
+          }
+        })
+        
+        localStorage.removeItem('token');
+        user$.next(null);
+        
+        navigate("/")
+      }catch (error) {
+        console.error("Erreur lors de la déconnexion :");
       }
-    });
-  };
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
