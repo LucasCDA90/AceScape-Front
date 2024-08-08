@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
     const [firstName, setFirstName] = useState("");
@@ -12,6 +12,7 @@ export const RegisterForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
+    const navigate = useNavigate(); 
     const handleRegister = async () => {
         try {
             await axios.post('http://localhost:3002/user', {
@@ -28,6 +29,7 @@ export const RegisterForm = () => {
             setUsername("");
             setEmail("");
             setPassword("");
+            navigate('/login');
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || 'Erreur lors de l\'inscription.');
         }

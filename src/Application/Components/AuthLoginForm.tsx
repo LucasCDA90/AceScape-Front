@@ -17,7 +17,7 @@ export const AuthLoginForm = () => {
                 'http://localhost:3002/login',
                 { username, password}
             );
-            
+            console.log(response)
             user$.next(response.data);
             
             setSuccessMessage("Connexion réussie !");

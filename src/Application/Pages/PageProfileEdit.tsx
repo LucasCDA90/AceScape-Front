@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {useUserInfo} from "../../Module/User.hook.ts";
+import { useUserInfo } from "../../Module/User.hook.ts";
+import { user$ } from "../../Module/User.ts";
 
 export const PageProfileEdit = () => {
-    const user = useUserInfo()
-    
+    const user = useUserInfo();
     const [valueForm, setValueForm] = useState({
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        email: user?.email,
-        username: user?.username,
+        firstName: user?.firstName || '',
+        lastName: user?.lastName || '',
+        email: user?.email || '',
+        username: user?.username || '',
     });
     
     const [valuePasswordForm, setValuePasswordForm] = useState({
@@ -21,38 +21,23 @@ export const PageProfileEdit = () => {
 
     const navigate = useNavigate();
 
-/*     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const response = await axios.put('http://localhost:3002/user/${userId}');
-                setValueForm({
-                    firstName: response.data.firstName,
-                    lastName: response.data.lastName,
-                    email: response.data.email,
-                    username: response.data.username,
-                    password: '',
-                    confirmPassword: '',
-                    newPassword: '',
-                });
-            } catch (error) {
-                console.error('Erreur lors de la récupération des informations utilisateur', error);
-            }
-        };
-
-        fetchUser();
-    }, []); */
+    useEffect(() => {
+        if (user) {
+            setValueForm({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                username: user.username,
+            });
+        }
+    }, [user]);
 
     const handleUpdateInfo = async (e: React.FormEvent) => {
         e.preventDefault();
-        const { firstName, lastName, email, username, password, newPassword, confirmPassword } = valueForm;
-
-        if (newPassword && newPassword !== confirmPassword) {
-            console.error('Les nouveaux mots de passe ne correspondent pas.');
-            return;
-        }
+        const { firstName, lastName, email, username } = valueForm;
 
         try {
-            await axios.put('://localhost:3002/user/66a9dc59cb756e9e1659eb85', {
+            const response = await axios.put(`http://localhost:3002/user/${user?._id}`, {
                 firstName,
                 lastName,
                 email,
@@ -64,6 +49,9 @@ export const PageProfileEdit = () => {
                 },
             });
             console.log('Informations mises à jour avec succès');
+            // Mettre à jour l'observable avec les nouvelles informations utilisateur
+            user$.next(response.data);
+            navigate('/profile');
         } catch (error) {
             console.error('Erreur lors de la mise à jour des informations', error);
         }
@@ -79,16 +67,16 @@ export const PageProfileEdit = () => {
         }
 
         try {
-            await axios.put('http://localhost:3002/user/66a9dc59cb756e9e1659eb85', {
-                password,
-                newPassword,
+            const response = await axios.put(`http://localhost:3002/user/${user?._id}`, {
+                password: newPassword
             }, {
                 headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE5ZGM1OWNiNzU2ZTllMTY1OWViODUiLCJpYXQiOjE3MjI0MDgzNjYsImV4cCI6MTcyMjQxNTU2Nn0.Pcjo4ysliGM9bwRz5kBZHhT3QdRZaroPF7o7IT2DuIY",
+                    'Authorization': `Bearer ${user?.token}`,
                     'Content-Type': 'application/json',
                 },
             });
             console.log('Mot de passe mis à jour avec succès');
+            console.log(response)
         } catch (error) {
             console.error('Erreur lors de la mise à jour du mot de passe', error);
         }
@@ -142,18 +130,6 @@ export const PageProfileEdit = () => {
                                 />
                             </div>
 
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Adresse mail</label>
-                                <input
-                                    value={valueForm.email}
-                                    onChange={(e) => setValueForm({ ...valueForm, email: e.currentTarget.value })}
-                                    type="email"
-                                    id="email"
-                                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                    placeholder="Adresse mail"
-                                />
-                            </div>
-
                             <button
                                 type="submit"
                                 className="w-full bg-green-600 text-white py-3 px-6 rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
@@ -170,7 +146,7 @@ export const PageProfileEdit = () => {
                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de passe actuel</label>
                                 <input
                                     value={valuePasswordForm.password}
-                                    onChange={(e) => setValueForm({ ...valueForm, password: e.currentTarget.value })}
+                                    onChange={(e) => setValuePasswordForm({ ...valuePasswordForm, password: e.currentTarget.value })}
                                     type="password"
                                     id="password"
                                     className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
@@ -182,7 +158,7 @@ export const PageProfileEdit = () => {
                                 <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">Nouveau mot de passe</label>
                                 <input
                                     value={valuePasswordForm.newPassword}
-                                    onChange={(e) => setValueForm({ ...valueForm, newPassword: e.currentTarget.value })}
+                                    onChange={(e) => setValuePasswordForm({ ...valuePasswordForm, newPassword: e.currentTarget.value })}
                                     type="password"
                                     id="newPassword"
                                     className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
@@ -194,7 +170,7 @@ export const PageProfileEdit = () => {
                                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirmer nouveau mot de passe</label>
                                 <input
                                     value={valuePasswordForm.confirmPassword}
-                                    onChange={(e) => setValueForm({ ...valueForm, confirmPassword: e.currentTarget.value })}
+                                    onChange={(e) => setValuePasswordForm({ ...valuePasswordForm, confirmPassword: e.currentTarget.value })}
                                     type="password"
                                     id="confirmPassword"
                                     className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
