@@ -12,12 +12,10 @@ export const AuthLoginForm = () => {
 
     const handlerConnexion = async () => {
         try {
-            //user$.subscribe(user => console.log(user))
             const response = await axios.post<User>(
                 'http://localhost:3002/login',
                 { username, password}
             );
-            console.log(response)
             user$.next(response.data);
             
             setSuccessMessage("Connexion réussie !");
